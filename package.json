@@ -1,0 +1,17 @@
+{
+    "name": "unimportant-key-box-cli",
+    "version": "1.0.2",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "bin": {
+        "keyBox": "bin/KeyBox.js"
+    },
+    "author": "shahow",
+    "license": "MIT",
+    "dependencies": {
+        "commander": "^8.3.0"
+    }
+}
