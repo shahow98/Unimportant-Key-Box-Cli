@@ -4,8 +4,26 @@
 
 ###### 一个命令行应用用于记录保存不重要的密码。
 
-# usage
+### usage
 
-```
-npm install unimportant-key-box-cli -g
-```
++ requires
+
+  + nodeJS
+  + npm
+
++ install
+
+  ```shell
+  npm install -g unimportant-key-box-cli
+  ```
+
++ use
+
+  ```shell
+  KeyBox
+  
+  Keybox -h
+  ```
+
+  
+

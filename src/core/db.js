@@ -1,5 +1,7 @@
 const path = require('path');
 const fs = require('fs');
+const config = require('../config/config.json');
+const crypto = require(`../crypto/${config.crypto}`);
 
 const INDEXES = 'indexes';
 const DEFAULT_INDEX = 'default';
@@ -24,7 +26,7 @@ const db = {
             } else {
                 this.addIndex(index);
             }
-            indexRecord[key] = password;
+            indexRecord[key] = encrypt(password);
             write(index, indexRecord);
 
             keyIncrement(index, key);
@@ -43,7 +45,7 @@ const db = {
     updatePassword(index = DEFAULT_INDEX, key, password) {
         if (this.hasKey(index, key)) {
             const indexRecord = this.getIndex(index);
-            indexRecord[key] = password;
+            indexRecord[key] = encrypt(password);
             write(index, indexRecord);
         } else {
             throw new Error('error: key is not exist, try add it!');
@@ -58,9 +60,9 @@ const db = {
             keyDecrement(index, key);
         }
     },
-    getPassword(index, key) {
+    getPassword(index = 'default', key) {
         if (this.hasKey(index, key)) {
-            return this.getIndex(index)[key];
+            return decrypt(this.getIndex(index)[key]);
         } else {
             throw new Error(`error: no such index or key, index: ${index}, key: ${key}.`);
         }
@@ -147,6 +149,14 @@ function rm(name) {
 
 function indexPath(name) {
     return path.join(__dirname, '..', 'db', `${name}.json`);
+}
+
+function encrypt(message) {
+    return crypto.encrypt(message);
+}
+
+function decrypt(message) {
+    return crypto.decrypt(message);
 }
 
 module.exports = db;

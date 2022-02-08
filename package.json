@@ -1,6 +1,6 @@
 {
     "name": "unimportant-key-box-cli",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "",
     "main": "index.js",
     "scripts": {
@@ -12,6 +12,7 @@
     "author": "shahow",
     "license": "MIT",
     "dependencies": {
-        "commander": "^8.3.0"
+        "commander": "^8.3.0",
+        "crypto-js": "^4.1.1"
     }
 }
