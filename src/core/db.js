@@ -1,10 +1,12 @@
 const path = require('path');
 const fs = require('fs');
-const config = require('../config/config.json');
-const crypto = require(`../crypto/${config.crypto}`);
+const config = require('../config/config');
+const crypto = require(`../crypto/${config.getProp(config.props.CRYPTO)}`);
 
 const INDEXES = 'indexes';
 const DEFAULT_INDEX = 'default';
+const DEFAULT_DIR = ".unimportant-key-box-cli";
+const DB_PATH = `${config.getProp(config.props.DB)}`;
 
 const db = {
     indexes: read(INDEXES),
@@ -148,7 +150,7 @@ function rm(name) {
 }
 
 function indexPath(name) {
-    return path.join(__dirname, '..', 'db', `${name}.json`);
+    return path.join(DB_PATH, DEFAULT_DIR, 'db', `${name}.json`);
 }
 
 function encrypt(message) {

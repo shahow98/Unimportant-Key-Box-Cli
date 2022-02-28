@@ -1,13 +1,14 @@
 {
     "name": "unimportant-key-box-cli",
-    "version": "1.0.3",
-    "description": "",
+    "version": "2.1.2",
+    "description": "a unimportant key box cli",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "postinstall": "node script/postinstall.js"
     },
     "bin": {
-        "keyBox": "bin/KeyBox.js"
+        "keybox": "bin/KeyBox.js"
     },
     "author": "shahow",
     "license": "MIT",

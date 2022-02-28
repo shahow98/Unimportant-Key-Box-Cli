@@ -1,11 +1,9 @@
 #!/usr/bin/env node
 
 const appInfo = require('../package.json');
-const config = require('../src/config/config');
 const process = require('process');
 const { Command } = require('commander');
 
-config.init();
 
 const program = new Command();
 program.showHelpAfterError();
